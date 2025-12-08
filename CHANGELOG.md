@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/synvert-datadrivers/terraform-signalfx-dashboard/compare/v1.0.3...v1.0.4) (2025-12-08)
+
+
+### Bug Fixes
+
+* allow minor provider upgrades ([#12](https://github.com/synvert-datadrivers/terraform-signalfx-dashboard/issues/12)) ([b718c32](https://github.com/synvert-datadrivers/terraform-signalfx-dashboard/commit/b718c329d979d13653991a479a0e1cee5efbf52b))
+
 ## [1.0.3](https://github.com/synvert-datadrivers/terraform-signalfx-dashboard/compare/v1.0.2...v1.0.3) (2024-02-28)
 
 
