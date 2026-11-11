@@ -9,7 +9,6 @@ resource "signalfx_single_value_chart" "this" {
   max_precision       = lookup(each.value, "max_precision", null)
   is_timestamp_hidden = lookup(each.value, "is_timestamp_hidden", null)
   color_by            = lookup(each.value, "color_by", null)
-  start               = -3600
 
   dynamic "color_scale" {
     for_each = lookup(each.value, "color_scales", {})
