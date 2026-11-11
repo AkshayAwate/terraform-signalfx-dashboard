@@ -29,14 +29,21 @@ resource "signalfx_dashboard" "this" {
     }
   }
 
+  
   dynamic "chart" {
-    for_each = lookup(var.dashboard_parameters, "charts", {})
+    for_each = {
+      for chart_id, chart_config in lookup(var.dashboard_parameters, "charts", {}) :
+      chart_id => chart_config
+      if contains(keys(local.chart_ids_by_reference), chart_id)
+    }
+  
     content {
       chart_id = local.chart_ids_by_reference[chart.key]
-      width    = lookup(chart.value, "width", null)
-      height   = lookup(chart.value, "height", null)
-      row      = lookup(chart.value, "row", null)
-      column   = lookup(chart.value, "column", null)
+  
+      width  = lookup(chart.value, "width", null)
+      height = lookup(chart.value, "height", null)
+      row    = lookup(chart.value, "row", null)
+      column = lookup(chart.value, "column", null)
     }
   }
 }
